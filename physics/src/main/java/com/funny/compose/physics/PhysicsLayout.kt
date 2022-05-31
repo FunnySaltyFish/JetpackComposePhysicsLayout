@@ -59,6 +59,7 @@ fun PhysicsLayout(
         mutableStateOf(0)
     }
 
+    // 初始化世界
     LaunchedEffect(initialized){
         Log.d(TAG, "PhysicsLayout: launchedEffect ${parentDataList.size} ${physics.width}")
         if (!initialized) return@LaunchedEffect
@@ -108,7 +109,7 @@ fun PhysicsLayout(
 
         val childConstraints = constraints.copy(minWidth = 0, minHeight = 0)
         val placeables = measurables.mapIndexed { index,  measurable ->
-            val physicsParentData = (measurable.parentData as? PhysicsParentData) ?: PhysicsParentData(initialX = 100f)
+            val physicsParentData = (measurable.parentData as? PhysicsParentData) ?: PhysicsParentData()
 //            Log.d(TAG, "PhysicsLayout: init : $initialized")
             if (!initialized){
                 parentDataList.add(index, physicsParentData)
