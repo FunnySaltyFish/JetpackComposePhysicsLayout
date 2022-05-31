@@ -1,0 +1,25 @@
+buildscript {
+    ext {
+        compose_version = '1.2.0-beta02'
+        kotlin_version = "1.6.21"
+    }
+    repositories {
+        mavenLocal()
+        //maven { url 'https://repo.huaweicloud.com/repository/maven/'}
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/'}
+        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
+        maven { url "https://jitpack.io" }
+        google()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
