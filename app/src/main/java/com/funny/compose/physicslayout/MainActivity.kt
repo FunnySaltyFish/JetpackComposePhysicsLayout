@@ -132,7 +132,7 @@ fun PhysicsLayoutTest(modifier: Modifier, physicsLayoutState: PhysicsLayoutState
                 }){
                     Intent().apply {
                         action = Intent.ACTION_VIEW
-                        data = Uri.parse("https://www.baidu.com")
+                        data = Uri.parse("https://github.com/FunnySaltyFish/JetpackComposePhysicsLayout")
                     }.also {
                         context.startActivity(it)
                     }
