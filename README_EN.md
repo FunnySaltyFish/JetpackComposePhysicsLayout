@@ -1,4 +1,5 @@
 ## Jetpack Compose Custom Layout + Physical Engine = ?
+[![](https://jitpack.io/v/FunnySaltyFish/JetpackComposePhysicsLayout.svg)](https://jitpack.io/#FunnySaltyFish/JetpackComposePhysicsLayout)
 
 This library is based on Jetpack Compose custom layout  +  physical engine（JBox2d）.
 
@@ -43,7 +44,10 @@ To experience additional features above, you can download the demo [here](demo.a
 
 ### Usage
 
-The code of core library code is  located in module `physics`. 
+The code of core library code is  located in module `physics`.  You can implement by using:
+```bash
+implementation 'com.github.FunnySaltyFish:JetpackComposePhysicsLayout:Tag'
+```
 
 The basically usage is as follows:
 

@@ -1,4 +1,5 @@
 ## Jetpack Compose 自定义布局+物理引擎 = ？
+[![](https://jitpack.io/v/FunnySaltyFish/JetpackComposePhysicsLayout.svg)](https://jitpack.io/#FunnySaltyFish/JetpackComposePhysicsLayout)
 
 [English](README_EN.md)  
 
@@ -46,6 +47,9 @@ PhysicsLayout(modifier = modifier, physicsLayoutState = physicsLayoutState, boun
 ### 使用
 
 库代码位置位于`physics`模块下，故需先依赖此模块。
+```bash
+implementation 'com.github.FunnySaltyFish:JetpackComposePhysicsLayout:Tag'
+```
 
 布局名为`PhysicsLayout`，基本使用如下：
 
