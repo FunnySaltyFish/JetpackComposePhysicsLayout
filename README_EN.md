@@ -12,7 +12,7 @@ Especially thanks to [Jawnnypoo/PhysicsLayout: Android layout that simulates phy
 
 ![PhysicsLayout Demo](screen_shot.gif)
 
-(These there buttons are "give random impulse", "set random gravity" and "set random border size" )
+(These three buttons are "give random impulse", "set random gravity" and "set random border size" )
 
 The corresponding codes are roughly as follows:
 
@@ -142,13 +142,13 @@ Now we've finished basic definition.  Let's start to implement the layout. Here 
 
 Let's do them one after another! *(Here are just my thoughts, and some of them may not be so elegant, if you have better ideas please point them out! )*
 
-In general, there should be some code dedicated to the physical simulation process, this part of the code is class, which is responsible for, and so on. It goes without saying here.
+In general, there should be some code dedicated to the physical simulation process, this part of the code is class `Physics`, which is responsible for `creating the world`, `simulate`, and so on. We just pass it here.
 
 
 
 ##### initialization
 
-Considering that the specific information of each sub-component is not readable, so it seems to only initialize here; but It will be done repeatedly, and initialization should only be done once. So use a variable to control it.
+Considering that the specific information of each sub-component is not readable until `Layout`  , so it seems that we can only initialize here; but cause the `Layout` process will be done repeatedly, and initialization should only be done once. So we use a variable to control it.
 
 
 ```kotlin
@@ -157,7 +157,7 @@ var initialized by remember {
 }
 ```
 
-And the first time read on each coexist
+They we store these`ParentData` at the first time.
 
 
 ```kotlin
@@ -170,7 +170,7 @@ val placeables = measurables.mapIndexed { index,  measurable ->
 }
 ```
 
-And then, with a side effect, after all the ** object information ** is initialized, create the world and create **Body** (in the Representative of China)
+And then, with a side effect, after all the object information is initialized, create the world and create **Body** (the class representing `rigid body` in JBox2d)
 
 
 ```kotlin
@@ -183,13 +183,13 @@ LaunchedEffect(initialized){
 }
 ```
 
-where Method is responsible for creating and at each Callback after creation
+where method `createWorld` is responsible for creating `World` and  do callback after each creation.
 
 
 
 ##### continuous simulation
 
-Simulated Job Delivery All we have to do is That's fine. therefore Cycle
+Simulating is the duty of `JBox2d` . All we have to do is call it repeatedly. 
 
 
 ```kotlin
@@ -205,9 +205,9 @@ LaunchedEffect(key1 = Unit){
 
 ##### Read and place correctly
 
-It's easy. It's Fanli read each location and just do
+This is not difficult，just reading each `Body`'s position and place it in `Layout`. 
 
-But be careful here because There's an angle of rotation, so in You need to use, the method signature is as follows:
+A special thing is，because `Body` has its rotation angle，so we need to use method`placeWithLayer`, whose signature is as below:
 
 
 ```kotlin
@@ -218,7 +218,7 @@ fun Placeable.placeWithLayer(
 )
 ```
 
-where third parameter provides and so on. The specific code is:
+where the third parameter `layerBlock` provides the way to `rotate`, `transform` and so on. The corresponding code is as below:
 
 
 ```kotlin
@@ -234,7 +234,7 @@ layout(constraints.maxWidth, constraints.maxHeight){
 }
 ```
 
-Top Used to map **physical world coordinates to reality**
+The function `metersToPixels` used above is to map **physical world coordinates to reality coordinates**
 
 Done!
 
@@ -244,8 +244,6 @@ Done!
 
 ### Follow-up
 
-Actually, there's something wrong with the code right now, like, to trigger I actually used a procedure that wasn't useful... Because in my attempts, as long as never appear change, it won't be triggered again (certainly in line with the Compose feel); I can't think of any good ideas, so I'll have to deal with them. If you have any good ideas, please discuss them with PR
+Actually, there's something not so perfect with the code right now, like, to trigger `Layout` , I actually used a state that wasn't useful... Because in my attempts, as long as `state` never appears to change, it won't be triggered (which is what Compose should behave); I can't think of any good ideas, so  if you have any good ideas, please discuss them with PRs.
 
-If you're wondering what it's for......Well, I don't know what it's for. I just thought it was fun. I've been doing it for a long time. I've been working on it for two days and it's working out.
-
-If you're interested in the full Compose project, look at my open source project
+If you're wondering what it can be used for......Well, I don't know, neither. I just thought it was fun. I've been thinking of doing it for a long time. and finally spent two days finishing it. It looks well, I think :)

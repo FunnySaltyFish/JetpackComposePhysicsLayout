@@ -7,6 +7,9 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.unit.Constraints
 import kotlinx.coroutines.delay
+
+// this file DOSE NOT BELONG TO THE LIBRARY
+// it is just used for test
 data class Point(var x : Int, var y : Int)
 private const val TAG = "LayoutRecomposeTest"
 @Composable
