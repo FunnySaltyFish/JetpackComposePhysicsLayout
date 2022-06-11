@@ -1,0 +1,97 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.funny.compose",
+    "module": "physics-layout",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.3"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jbox2d",
+          "module": "jbox2d-library",
+          "version": {
+            "requires": "2.2.1.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "physics-layout-1.0.0.aar",
+          "url": "physics-layout-1.0.0.aar",
+          "size": 66932,
+          "sha512": "cc72bc184332517f72adbdbd7b70c03db7bdb9fba8e866b52bab30fc95b677e5c80452e93c6d4ecd320dc0885972e08312a31a7e28d989b4f45eaf97e5941b7a",
+          "sha256": "becff5c82630160313c53082a85efa911dddde738add370d6adcf5f055dd6ba2",
+          "sha1": "af35e0385849cb67fc2e35b2d8d738986dda24bc",
+          "md5": "bfc44af9479de8bdae1217c90126cc55"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.jbox2d",
+          "module": "jbox2d-library",
+          "version": {
+            "requires": "2.2.1.1"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.7.0"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.2.0-beta02"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "physics-layout-1.0.0.aar",
+          "url": "physics-layout-1.0.0.aar",
+          "size": 66932,
+          "sha512": "cc72bc184332517f72adbdbd7b70c03db7bdb9fba8e866b52bab30fc95b677e5c80452e93c6d4ecd320dc0885972e08312a31a7e28d989b4f45eaf97e5941b7a",
+          "sha256": "becff5c82630160313c53082a85efa911dddde738add370d6adcf5f055dd6ba2",
+          "sha1": "af35e0385849cb67fc2e35b2d8d738986dda24bc",
+          "md5": "bfc44af9479de8bdae1217c90126cc55"
+        }
+      ]
+    }
+  ]
+}

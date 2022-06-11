@@ -1,7 +1,8 @@
 ## Jetpack Compose 自定义布局+物理引擎 = ？
 
-本库基于`Compose`自定义布局技术 + `JBox2d` 实现了物理引擎布局。其内部`Composable`会由物理引擎不断运动
+[English](README_EN.md)  
 
+本库基于`Compose`自定义布局技术 + `JBox2d` 实现了物理引擎布局。其内部`Composable`会由物理引擎不断运动  
 
 
 ### 效果
@@ -28,12 +29,7 @@ PhysicsLayout(modifier = modifier, physicsLayoutState = physicsLayoutState, boun
         .clip(CircleShape)
         .size(50.dp)
         .physics(physicsConfig.copy(shape = PhysicsShape.CIRCLE), 300f, 1000f))
-    RandomColorBox(modifier = Modifier
-        .size(60.dp)
-        .physics(physicsConfig))
-    var checked by remember {
-        mutableStateOf(false)
-    }
+    RandomColorBox(...)
     Checkbox(...)
     Card(...) {
         ...
